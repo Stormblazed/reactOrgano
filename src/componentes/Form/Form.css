@@ -15,3 +15,11 @@
 .form h2{    
     text-align: center;
 }
+
+.form input{
+    border-radius: 15px;
+}
+
+.form select{
+    border-radius: 15px;
+}
