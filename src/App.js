@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Form from './componentes/Form';
 
+function App() {
+  const [collaborators, setCollaborator] = useState([])
 
-function App() {  
+  const onNewCollaborator = (collaborator) => {
+    setCollaborator([...collaborators, collaborator])
+    console.table(collaborators)
+  }
   return (
-    <div className="App">      
-      <Banner/>
-      <Form/>
+    <div className="App">
+      <Banner />
+      <Form onCollaborators={item => onNewCollaborator(item)} />
     </div>
   );
 }
