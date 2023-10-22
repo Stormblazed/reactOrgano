@@ -7,24 +7,19 @@ import './Form.css'
 
 const Form = (props) => {
 
-    const timesArray = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'Ux e Desing',
-        'Mobile',
-        'Inovalção e Gestão'
-    ]
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')    
-    const [time, setTime] = useState('Programação')    
+    const [time, setTime] = useState('')    
 
     const aoSalver = (evento) => {    
         evento.preventDefault()        
         props.onCollaborators({nome,cargo,imagem,time})
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
     
     return (
@@ -54,7 +49,7 @@ const Form = (props) => {
                 <InputSelect 
                     required={true} 
                     label="Time" 
-                    itens={timesArray} 
+                    itens={props.times} 
                     valor={time}
                     onSelectValue={value => setTime(value)}
                 />
